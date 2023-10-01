@@ -4,24 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotels in Berlin, Germany</title>
+    <title>ONTHEGO APP</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Your custom styles -->
     <style>
+        .navbar {
+            background-color: #007BFF;
+        }
+
         .navbar-brand {
+            color: #ffffff;
             font-weight: bold;
         }
 
         .navbar-nav .nav-link {
+            color: #ffffff;
             font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffffff;
         }
     </style>
 </head>
 
 <body>
     <!-- Modern Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="/">ONTHEGO APP</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -34,6 +44,12 @@
                         <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="/booking">Booking</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/end">End</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/about">About</a>
                     </li>
                     <!-- Add more navigation links as needed -->
@@ -42,23 +58,9 @@
         </div>
     </nav>
 
-    <div class="container mt-4">
-        <h1 class="mb-4">Hotels in Berlin, Germany</h1>
-        <ul class="hotel-list">
-            {% if hotels %}
-                {% for hotel in hotels %}
-                    <li class="hotel-list-item">
-                        <h3>{{ hotel.hotelName }}</h3>
-                        <p><strong>City:</strong> {{ hotel.city }}</p>
-                        <p><strong>Country:</strong> {{ hotel.country }}</p>
-                        <!-- Include more hotel details here as needed -->
-                    </li>
-                {% endfor %}
-            {% else %}
-                <li>No hotels found.</li>
-            {% endif %}
-        </ul>
-    </div>
+    <!-- Content for each page goes here -->
+    {% block content %}
+    {% endblock %}
 
     <!-- Bootstrap JS and dependencies (jQuery and Popper.js) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
@@ -67,4 +69,5 @@
 </body>
 
 </html>
+
 
