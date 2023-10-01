@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+
+{% block title %}Hotels{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">Best Hotels in Berlin, Germany</h1>
+    <div class="row">
+        {% for hotel in hotels %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{ hotel.hotelImage }}" class="card-img-top" alt="{{ hotel.hotelName }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ hotel.hotelName }}</h5>
+                    <p class="card-text">{{ hotel.description }}</p>
+                    <p class="card-text">Price: {{ hotel.price }} {{ hotel.currency }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
