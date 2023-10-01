@@ -1,14 +1,25 @@
-import requests
+{% extends "index.html" %}
 
-url = "https://best-booking-com-hotel.p.rapidapi.com/booking/best-accommodation"
+{% block title %}Booking{% endblock %}
 
-querystring = {"cityName":"Berlin","countryName":"Germany"}
+{% block content %}
+    <h1 class="mb-4">Book Your Service</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <img src="https://via.placeholder.com/400" class="img-fluid mb-3" alt="Service Image">
+        </div>
+        <div class="col-md-6">
+            <p>Select your preferred service:</p>
+            <select class="form-select mb-3" aria-label="Select Service">
+                <option selected>Select Service</option>
+                {% for service in services %}
+                <option value="{{ service }}">{{ service }}</option>
+                {% endfor %}
+            </select>
+            <button class="btn btn-primary">Book Now</button>
+        </div>
+    </div>
+{% endblock %}
 
-headers = {
-	"X-RapidAPI-Key": "38aba8fdd7msh17e0b0cef497d80p12ff81jsnae1951e99dcd",
-	"X-RapidAPI-Host": "best-booking-com-hotel.p.rapidapi.com"
-}
 
-response = requests.get(url, headers=headers, params=querystring)
 
-print(response.json())
