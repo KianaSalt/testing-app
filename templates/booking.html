@@ -10,16 +10,52 @@
         </div>
         <div class="col-md-6">
             <p>Select your preferred service:</p>
-            <select class="form-select mb-3" aria-label="Select Service">
+            <select id="serviceSelect" class="form-select mb-3" aria-label="Select Service">
                 <option selected>Select Service</option>
                 {% for service in services %}
                 <option value="{{ service }}">{{ service }}</option>
                 {% endfor %}
             </select>
-            <button class="btn btn-primary">Book Now</button>
+            <button id="bookNowBtn" class="btn btn-primary">Book Now</button>
         </div>
     </div>
+
+    <script>
+        // JavaScript code to handle form submission using AJAX
+        const bookNowBtn = document.getElementById('bookNowBtn');
+        const serviceSelect = document.getElementById('serviceSelect');
+
+        bookNowBtn.addEventListener('click', function() {
+            const selectedService = serviceSelect.value;
+
+            // Check if a service is selected
+            if (selectedService === 'Select Service') {
+                alert('Please select a service before booking.');
+                return;
+            }
+
+            // Send form data to the server using AJAX
+            const formData = new FormData();
+            formData.append('service', selectedService);
+
+            fetch('/book_now', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Handle the response from the server (data storage confirmation)
+                console.log(data.message);
+                alert('Booking confirmed!'); // You can customize this confirmation message
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error occurred while booking. Please try again later.'); // Error message
+            });
+        });
+    </script>
 {% endblock %}
+
 
 
 
