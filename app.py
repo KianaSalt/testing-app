@@ -1,32 +1,34 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify
 import requests
+import aiohttp
+import asyncio
+import random
+
 
 app = Flask(__name__)
+
+booked_services = []
+
+tips_data = [
+    {"text": "Pack light and smart.", "url": "https://www.travelandleisure.com/travel-tips/packing-tips/travel-editor-packing-tips?cjdata=MXxOfDB8WXww&cjevent=05b529406b5e11ee814640fc0a82b824&utm_source=CJ&utm_medium=affiliate"},
+    {"text": "Learn a few local phrases.", "url": "https://blog.oncallinternational.com/before-you-travel-key-phrases-to-learn-in-the-local-language/"},
+    {"text": "Respect local customs and traditions.", "url": "https://www.kayak.com.au/news/travel-etiquette-tips/#:~:text=7%20Travel%20Etiquette%20Advice%20To%20Better%20Respect%20Local,...%207%207.%20DO%20watch%20your%20dress%20code"},
+    # Add more tips as needed
+]
+hotels_data = [
+    {"name": "Hotel A", "location": "City A"},
+    {"name": "Hotel B", "location": "City B"},
+    {"name": "Hotel C", "location": "City C"},
+    # Add more hotel data as needed
+]
 
 # Home route
 @app.route("/")                   
 def home():
-    # Axios API request options
-    url = "https://apidojo-booking-v1.p.rapidapi.com/currency/get-exchange-rates?rapidapi-key=ff511b0e11msh532c009df749b7fp1c32f0jsncc64d31ee82a"
-    querystring = {"cityName": "Berlin", "countryName": "Germany"}
-    headers = {
-        "X-RapidAPI-Key": "ff511b0e11msh532c009df749b7fp1c32f0jsncc64d31ee82a",
-        "X-RapidAPI-Host": "apidojo-booking-v1.p.rapidapi.com"
-    }
+    return render_template("index.html", travel_tips=tips_data)
 
-    try:
-        response = requests.get(url, headers=headers, params=querystring)
-        response.raise_for_status()  # Raise an HTTPError for bad requests (4xx and 5xx status codes)
-        hotels_data = response.json().get("data", [])
-        return render_template("index.html", hotels=hotels_data)
-    except requests.exceptions.HTTPError as errh:
-        return f"HTTP Error: {errh}"
-    except requests.exceptions.ConnectionError as errc:
-        return f"Error Connecting: {errc}"
-    except requests.exceptions.Timeout as errt:
-        return f"Timeout Error: {errt}"
-    except requests.exceptions.RequestException as err:
-        return f"Something went wrong: {err}"
+
+
 
 # Booking route
 @app.route("/booking")                   
@@ -36,15 +38,27 @@ def booking():
     available_services = ["Service A", "Service B", "Service C", "Service D", "Service E"]  # List of available services
     return render_template("booking.html", services=available_services)
 
+
 # End route
 @app.route("/end")                   
 def end():
     return render_template("end.html")
 
+# About Route
 @app.route("/about")
 def about():
-    # Place holder
     return render_template("about.html")
+#Book Now
+@app.route("/book-now", methods=["GET", "POST"])
+def book_now():
+    if request.method == "POST":
+        selected_service = request.form.get("service")
+        # Handle the selected service (store it in a database, etc.)
+        return render_template("booking_confirmation.html", service=selected_service)
+    else:
+        return render_template("book_now.html", services=available_services)
+
+
 
 # Get hotels route (if needed)
 @app.route("/get_hotels")                   
