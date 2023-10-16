@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1 class="mb-4">Travel Tips</h1>
+        <ul class="list-group">
+            {% for tip in travel_tips %}
+                <li class="list-group-item">
+                    <a href="{{ tip.url }}" target="_blank">{{ tip.text }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
