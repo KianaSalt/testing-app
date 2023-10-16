@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 import requests
-import aiohttp
+
 import asyncio
 import random
 
