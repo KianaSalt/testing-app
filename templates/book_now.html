@@ -1,1 +1,25 @@
 
+{% extends "index.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">Book Your Service</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <img src="https://pmcaonline.org/wp-content/uploads/2019/10/hotel-1068x801.jpg" class="img-fluid mb-3" alt="Service Image">
+        </div>
+        <div class="col-md-6">
+            <form action="/book-now" method="post">
+                <p>Select your preferred service:</p>
+                <select name="service" class="form-select mb-3" aria-label="Select Service">
+                    <option selected>Select Service</option>
+                    {% for service in services %}
+                        <option value="{{ service }}">{{ service }}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit" class="btn btn-primary">Book Now</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
