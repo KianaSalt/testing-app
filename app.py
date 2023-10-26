@@ -1,6 +1,6 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, json
 import requests
-
+import os
 import asyncio
 import random
 
@@ -39,10 +39,22 @@ def booking():
     return render_template("booking.html", services=available_services)
 
 
-# End route
-@app.route("/end")                   
+# Suggestions route
+@app.route("/suggestions")                   
 def end():
-    return render_template("end.html")
+    url = "https://best-booking-com-hotel.p.rapidapi.com/booking/best-accommodation"
+
+    querystring = {"cityName":"Berlin","countryName":"Germany"}
+
+    headers = {
+	"X-RapidAPI-Key": "4894c3a1bcmshd133c8566ef57e7p1c5692jsn39cf5eb18188",
+	"X-RapidAPI-Host": "best-booking-com-hotel.p.rapidapi.com"
+    }
+
+    response = requests.get(url, headers=headers, params=querystring)
+    data = response.json()
+    return render_template("suggestions.html", datum=data)
+    #return render_template("end.html")
 
 # About Route
 @app.route("/about")
