@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!--<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel Data Display</title>-->
+    <title>Hotel Data Display</title>
 </head>
 <body>
-    {% extends "index.html" %}
-    {% block content %}
     <h2>Hotel Information</h2>
     <p><strong>Name:</strong> {{ datum.name }}</p>
     <p><strong>Link:</strong> <a href="{{ datum.link }}" target="_blank">Booking Link</a></p>
     <p><strong>Rating:</strong> {{ datum.rating }}</p>
-    {% endblock %}
+    
 </body>
 </html>
 
