@@ -48,14 +48,19 @@ def end():
     querystring = {"cityName":"Berlin","countryName":"Germany"}
 
     headers = {
-	"X-RapidAPI-Key": "4894c3a1bcmshd133c8566ef57e7p1c5692jsn39cf5eb18188",
+	"X-RapidAPI-Key": "9daf6ee558msha7fffbe9f1f68d0p17c54ejsnc6f2201dcebb",
 	"X-RapidAPI-Host": "best-booking-com-hotel.p.rapidapi.com"
     }
 
     response = requests.get(url, headers=headers, params=querystring)
+
     data = response.json()
+    if response.status_code != 200:
+        return f"Error: Received status code {response.status_code} from API."
     return render_template("suggestions.html", datum=data)
     #return render_template("end.html")
+
+    
 
 # About Route
 @app.route("/about")
