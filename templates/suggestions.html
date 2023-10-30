@@ -2,9 +2,14 @@
 {% extends "index.html" %}
 {% block content %}
     <h2>Hotel Information</h2>
-    <p><strong>Name:</strong> {{ datum.name }}</p>
-    <p><strong>Link:</strong> <a href="{{ datum.link }}" target="_blank">Booking Link</a></p>
-    <p><strong>Rating:</strong> {{ datum.rating }}</p>
+    <p><strong>Name:</strong> {{ datum[0].name }}</p>
+    <p><strong>Link:</strong> <a href="{{ datum[0].link }}" target="_blank">Booking Link</a></p>
+    <p><strong>Rating:</strong> {{ datum[0].rating }}</p>
+
+    <h2>Hotel Information2</h2>
+    <p><strong>Name2:</strong> {{ datum[1].name }}</p>
+    <p><strong>Link2:</strong> <a href="{{ datum[1].link }}" target="_blank">Booking Link</a></p>
+    <p><strong>Rating2:</strong> {{ datum[1].rating }}</p>
 {% endblock %}
 
 

@@ -45,20 +45,35 @@ def booking():
 def end():
     url = "https://best-booking-com-hotel.p.rapidapi.com/booking/best-accommodation"
 
-    querystring = {"cityName":"Berlin","countryName":"Germany"}
+   # List of query strings
+    querystrings = [
+    {"cityName": "Berlin", "countryName": "Germany"},
+    {"cityName": "Atlanta", "countryName": "Georgia"}
+    ]
+   #querystring = {"cityName":"Berlin","countryName":"Germany"}
+    #querystring2 = {"cityName":"Atlanta","countryName":"Georgia"}
 
     headers = {
 	"X-RapidAPI-Key": "9daf6ee558msha7fffbe9f1f68d0p17c54ejsnc6f2201dcebb",
 	"X-RapidAPI-Host": "best-booking-com-hotel.p.rapidapi.com"
     }
+    all_data = []
 
-    response = requests.get(url, headers=headers, params=querystring)
+    for querystring in querystrings:
+        response = requests.get(url, headers=headers, params=querystring)
 
-    data = response.json()
-    if response.status_code != 200:
-        return f"Error: Received status code {response.status_code} from API."
-    return render_template("suggestions.html", datum=data)
-    #return render_template("end.html")
+    #data = response.json()
+        if response.status_code != 200:
+            return f"Error: Received status code {response.status_code} from API."
+        data = response.json()
+        all_data.append(data)
+
+    return render_template("suggestions.html", datum=all_data)
+
+
+
+
+#return render_template("end.html")
 
     
 
