@@ -54,7 +54,7 @@ def end():
     #querystring2 = {"cityName":"Atlanta","countryName":"Georgia"}
 
     headers = {
-	"X-RapidAPI-Key": "9daf6ee558msha7fffbe9f1f68d0p17c54ejsnc6f2201dcebb",
+	"X-RapidAPI-Key": "fbbf2462damsh8f61402249d9b3fp1f85fbjsnf63fedc01dd1",
 	"X-RapidAPI-Host": "best-booking-com-hotel.p.rapidapi.com"
     }
     all_data = []
@@ -67,6 +67,7 @@ def end():
             return f"Error: Received status code {response.status_code} from API."
         data = response.json()
         all_data.append(data)
+    print(all_data)
 
     return render_template("suggestions.html", datum=all_data)
 
