@@ -1,15 +1,5 @@
 {% extends "index.html" %}
-{% block content %}
-    {% for hotel in datum %}
-        <h2>Hotel Information</h2>
-        <p><strong>Name:</strong> {{ hotel.name }}</p>
-        <p><strong>Link:</strong> <a href="{{ hotel.link }}" target="_blank">Booking Link</a></p>
-        <p><strong>Rating:</strong> {{ hotel.rating }}</p>
-    {% endfor %}
-{% endblock %}
-
-<!--{% extends "index.html" %}
-{% block content %}
+    {% block content %}
     <h2>Hotel Information</h2>
     <p><strong>Name:</strong> {{ datum[0].name }}</p>
     <p><strong>Link:</strong> <a href="{{ datum[0].link }}" target="_blank">Booking Link</a></p>
@@ -19,7 +9,11 @@
     <p><strong>Name2:</strong> {{ datum[1].name }}</p>
     <p><strong>Link2:</strong> <a href="{{ datum[1].link }}" target="_blank">Booking Link</a></p>
     <p><strong>Rating2:</strong> {{ datum[1].rating }}</p>
-{% endblock %}-->
+{% endblock %}
+
+
+
+
 
 
 
