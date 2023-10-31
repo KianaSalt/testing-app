@@ -54,7 +54,7 @@ def end():
     #querystring2 = {"cityName":"Atlanta","countryName":"Georgia"}
 
     headers = {
-	"X-RapidAPI-Key": "4894c3a1bcmshd133c8566ef57e7p1c5692jsn39cf5eb18188",
+	"X-RapidAPI-Key": "52a418ac50msh0d840612b071970p1806a3jsn91e3a27a6344",
 	"X-RapidAPI-Host": "best-booking-com-hotel.p.rapidapi.com"
     }
     all_data = []
@@ -63,8 +63,8 @@ def end():
         response = requests.get(url, headers=headers, params=querystring)
 
     #data = response.json()
-        if response.status_code != 200:
-            return f"Error: Received status code {response.status_code} from API."
+        #if response.status_code != 200:
+           #return f"Error: Received status code {response.status_code} from API."
         data = response.json()
         all_data.append(data)
     #print(all_data)
