@@ -49,8 +49,8 @@ def end():
     querystrings = [
     {"cityName": "Berlin", "countryName": "Germany"},
     {"cityName": "Atlanta", "countryName": "Georgia"},
-    {"cityName": "Bangkok", "countryName": "Thailand"}
-    ]
+    
+    ] #{"cityName": "Bangkok", "countryName": "Thailand"}
    #querystring = {"cityName":"Berlin","countryName":"Germany"}
     #querystring2 = {"cityName":"Atlanta","countryName":"Georgia"}
 

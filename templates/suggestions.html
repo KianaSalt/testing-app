@@ -1,11 +1,15 @@
 {% extends "index.html" %}
 {% block content %}
-    {% for hotel in datum %}
-        <h2>Hotel Information</h2>
-        <p><strong>Name:</strong> {{ hotel.name }}</p>
-        <p><strong>Link:</strong> <a href="{{ hotel.link }}" target="_blank">Booking Link</a></p>
-        <p><strong>Rating:</strong> {{ hotel.rating }}</p>
-    {% endfor %}
+    <div class="hotel-container">
+        {% for hotel in datum %}
+            <div class="hotel-entry">
+                <h2>Hotel Information</h2>
+                <p><strong>Name:</strong> {{ hotel.name }}</p>
+                <p><strong>Link:</strong> <a href="{{ hotel.link }}" target="_blank">Booking Link</a></p>
+                <p><strong>Rating:</strong> {{ hotel.rating }}</p>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}
 
 
