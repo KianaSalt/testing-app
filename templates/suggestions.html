@@ -1,22 +1,27 @@
 {% extends "index.html" %}
-{% block content %}
-    <div class="hotel-container">
-        {% for hotel in datum %}
-            <div class="hotel-entry">
-                <h2>Hotel Information</h2>
-                <p><strong>Name:</strong> {{ hotel.name }}</p>
-                <p><strong>Link:</strong> <a href="{{ hotel.link }}" target="_blank">Booking Link</a></p>
-                <p><strong>Rating:</strong> {{ hotel.rating }}</p>
-            </div>
-        {% endfor %}
-    </div>
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="/static/css/app.css">
+    <!-- Add any specific head content for the "Suggestions" page if needed -->
 {% endblock %}
 
+{% block content %}
+    <header>
+        <div class="container mt-4">
+            <h1 class="mb-4">Hotel Suggestions</h1>
+        </div>
+    </header>
 
-
-
-
-
-
-
-   
+    <div class="container mt-2">
+        <div class="hotel-container">
+            {% for hotel in datum %}
+                <div class="hotel-entry">
+                    <h2>Hotel Information</h2>
+                    <p><strong>Name:</strong> {{ hotel.name }}</p>
+                    <p><strong>Link:</strong> <a href="{{ hotel.link }}" target="_blank">Booking Link</a></p>
+                    <p><strong>Rating:</strong> {{ hotel.rating }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
