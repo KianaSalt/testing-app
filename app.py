@@ -10,12 +10,6 @@ app = Flask(__name__)
 
 booked_services = []
 
-#tips_data = [
-   # {"text": "Pack light and smart.", "url": "https://www.travelandleisure.com/travel-tips/packing-tips/travel-editor-packing-tips?cjdata=MXxOfDB8WXww&cjevent=05b529406b5e11ee814640fc0a82b824&utm_source=CJ&utm_medium=affiliate"},
-    #{"text": "Learn a few local phrases.", "url": "https://blog.oncallinternational.com/before-you-travel-key-phrases-to-learn-in-the-local-language/"},
-    #{"text": "Respect local customs and traditions.", "url": "https://www.kayak.com.au/news/travel-etiquette-tips/#:~:text=7%20Travel%20Etiquette%20Advice%20To%20Better%20Respect%20Local,...%207%207.%20DO%20watch%20your%20dress%20code"},
-    # Add more tips as needed
-#]
 hotels_data = [
     {"name": "Hotel A", "location": "City A"},
     {"name": "Hotel B", "location": "City B"},
@@ -27,9 +21,6 @@ hotels_data = [
 @app.route("/")                   
 def home():
     return render_template("index.html")
-
-
-
 
 # Booking route
 @app.route("/booking")                   
