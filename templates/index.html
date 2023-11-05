@@ -64,74 +64,9 @@
 
     <!-- Content for each page goes here -->
     {% block content %}
-
-    <div class="container">
-        <div class="row align-items-start">
-            <div class="col">
-                <h2>Column 1</h2>
-                <p>Content for column 1.</p>
-            </div>
-            <div class="col">
-                <h2>Column 2</h2>
-                <p>Content for column 2.</p>
-            </div>
-            <div class="col">
-                <h2>Column 3</h2>
-                <p>Content for column 3.</p>
-            </div>
-        </div>
-    </div>
-    
-
-    <div class="container mt-4">
-        <h1 class="mb-4">Travel Tips</h1>
-        <ul class="list-group">
-            {% for tip in travel_tips %}
-                <li class="list-group-item">
-                    <a href="{{ tip.url }}" target="_blank">{{ tip.text }}</a>
-                </li>
-            {% endfor %}
-        </ul>
-
-        <h1 class="display-4 mb-4 mt-5">About Us</h1>
-
-        <div class="row">
-            <div class="col-lg-6">
-                <img src="https://assets.simpleviewinc.com/simpleview/image/upload/c_fit,w_800,h_600/crm/oneidany/ADK-Trailblazer-Logo_362E63B1-5056-A36A-07A98277C231C239-362e62375056a36_362e6aab-5056-a36a-07d86b445f868795.png" alt="Trail Blazers Logo" class="img-fluid mb-4">
-            </div>
-            <div class="col-lg-6">
-                <p class="lead">
-                    Welcome to <strong>Trail Blazers</strong>, where passionate travelers come together to explore the wonders of our world. We are more than just a group; we are a vibrant community dedicated to embracing the diverse cultures, cuisines, and landscapes that this planet has to offer.
-                </p>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-6">
-                <h2 class="h4 mt-4 mb-3">Our Mission</h2>
-                <p>
-                    Our mission is to create memorable and enriching travel experiences by venturing into the heart of every destination. We believe in the power of shared exploration and the joy of discovering the world together.
-                </p>
-            </div>
-
-            <div class="col-lg-6">
-                <h2 class="h4 mt-4 mb-3">What Sets Us Apart</h2>
-                <p>
-                    At Trail Blazers, our journeys are carefully curated by skilled itinerary crafters, expert navigators, passionate photographers, and eloquent storytellers. Together, we weave a tapestry of experiences that capture the essence of each place we visit.
-                </p>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-12">
-                <h2 class="h4 mt-4 mb-3">Join Us on This Adventure</h2>
-                <p>
-                    Embark on a journey of discovery with us. Whether you are an avid explorer, a photography enthusiast, or someone simply looking to broaden your horizons, Trail Blazers welcomes you. Because we believe that every step of the journey matters, and it's amplified when experienced together.
-                </p>
-            </div>
-        </div>
-    </div>
+    {% include "home.html" %}
     {% endblock %}
+    
 
     <!-- Bootstrap JS and dependencies (jQuery and Popper.js) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
