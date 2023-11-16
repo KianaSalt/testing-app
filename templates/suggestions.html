@@ -1,7 +1,16 @@
 {% extends "index.html" %}
 
+{% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Suggestions</title>
+
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/app.css') }}">
+{% endblock %}
+
 {% block content %}
-    <div class="container mt-4">
+    <div class="container mt-4 suggestions-tab">
         <header>
             <h1 class="mb-4">Hotel Suggestions</h1>
         </header>
@@ -21,3 +30,5 @@
         </div>
     </div>
 {% endblock %}
+
+
