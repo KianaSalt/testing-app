@@ -21,18 +21,19 @@
         <div class="row">
             {% for hotel in datum %}
                 <div class="col-md-4 mb-4">
-                    <div class="card">
+                    <div class="card" style="width: 18rem;">
                         <div class="card-body">
                             <h5 class="card-title">{{ hotel.name }}</h5>
-                            <p class="card-text"><strong>Rating:</strong> {{ hotel.rating }}</p>
+                            <h6 class="card-subtitle mb-2 text-muted"><strong>Rating:</strong> {{ hotel.rating }}</h6>
                             <a href="{{ hotel.link }}" class="btn btn-primary" target="_blank">Book Now</a>
+                            <!-- Add additional card links or information as needed -->
                         </div>
                     </div>
                 </div>
             {% endfor %}
         </div>
     </div>
-
+    
     <!-- Other sections without background image -->
     <div class="container mt-4">
         <!-- New section or heading -->
