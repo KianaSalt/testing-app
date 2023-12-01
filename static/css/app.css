@@ -1,6 +1,12 @@
-.suggestions-tab {
-    background-image: url('https://as2.ftcdn.net/v2/jpg/00/65/48/25/1000_F_65482539_C0ZozE5gUjCafz7Xq98WB4dW6LAhqKfs.jpg'); /* Adjust the path */
-    background-size: cover;
+.top-section {
+    background-image: url('https://as2.ftcdn.net/v2/jpg/00/65/48/25/1000_F_65482539_C0ZozE5gUjCafz7Xq98WB4dW6LAhqKfs.jpg');
+    background-size: 1400px 1000px; /* Set fixed width and height */
     background-position: center;
+    background-attachment: fixed; /* Keep the background fixed within the viewport */
+    background-repeat: no-repeat; /* Do not repeat the background image */
+    
     /* Other background properties can be added as needed */
 }
+
+
+
