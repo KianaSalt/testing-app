@@ -1,6 +1,6 @@
 .top-section {
-    background-image: url('https://as2.ftcdn.net/v2/jpg/00/65/48/25/1000_F_65482539_C0ZozE5gUjCafz7Xq98WB4dW6LAhqKfs.jpg');
-    background-size: 1400px 1000px; /* Set fixed width and height */
+    background-image: url('https://images.unsplash.com/photo-1522143804971-93c748148fbd?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8c2VyZW5lfGVufDB8fDB8fHww');
+    background-size: 2000px 1000px; /* Set fixed width and height */
     background-position: center;
     background-attachment: fixed; /* Keep the background fixed within the viewport */
     background-repeat: no-repeat; /* Do not repeat the background image */
