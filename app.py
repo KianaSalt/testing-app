@@ -40,13 +40,9 @@ def end():
     querystrings = [
     {"cityName": "Berlin", "countryName": "Germany"},
     {"cityName": "Atlanta", "countryName": "Georgia"},
-    
-    ] #{"cityName": "Bangkok", "countryName": "Thailand"}
-   #querystring = {"cityName":"Berlin","countryName":"Germany"}
-    #querystring2 = {"cityName":"Atlanta","countryName":"Georgia"}
-
+    ]
     headers = {
-    "X-RapidAPI-Key": "b9acad5e50msh9b9087d682ca9d9p1a812fjsnbc3e76195a9b",
+    "X-RapidAPI-Key": "f483517b4amshef1d273499a38dep145e52jsn49c64fb576fb",
 	"X-RapidAPI-Host": "best-booking-com-hotel.p.rapidapi.com"
     }
     all_data = []
@@ -54,14 +50,20 @@ def end():
     for querystring in querystrings:
         response = requests.get(url, headers=headers, params=querystring)
 
-    #data = response.json()
-        #if response.status_code != 200:
-            #return f"Error: Received status code {response.status_code} from API."
-        data = response.json()
+        # Print the response JSON for debugging
+        print(response.json())
 
-        all_data.append(data)
+        data = response.json().get('data', [])
 
-    return render_template("suggestions.html", datum=all_data)  # Pass the city data to the template
+        all_data.extend(data)
+
+    return render_template("suggestions.html", datum=all_data)  # Pass the hotel data to the template
+
+        #data = response.json().get
+
+        #all_data.append(data)
+
+    #return render_template("suggestions.html", datum=all_data)  # Pass the city data to the template
 
     
 
