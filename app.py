@@ -42,7 +42,7 @@ def end():
     {"cityName": "Atlanta", "countryName": "Georgia"},
     ]
     headers = {
-    "X-RapidAPI-Key": "f483517b4amshef1d273499a38dep145e52jsn49c64fb576fb",
+    "X-RapidAPI-Key": "b9acad5e50msh9b9087d682ca9d9p1a812fjsnbc3e76195a9b",
 	"X-RapidAPI-Host": "best-booking-com-hotel.p.rapidapi.com"
     }
     all_data = []
@@ -50,20 +50,11 @@ def end():
     for querystring in querystrings:
         response = requests.get(url, headers=headers, params=querystring)
 
-        # Print the response JSON for debugging
-        print(response.json())
+        data = response.json()
 
-        data = response.json().get('data', [])
+        all_data.append(data)
 
-        all_data.extend(data)
-
-    return render_template("suggestions.html", datum=all_data)  # Pass the hotel data to the template
-
-        #data = response.json().get
-
-        #all_data.append(data)
-
-    #return render_template("suggestions.html", datum=all_data)  # Pass the city data to the template
+    return render_template("suggestions.html", datum=all_data)  # Pass the city data to the template
 
     
 

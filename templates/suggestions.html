@@ -11,20 +11,30 @@
 
 {% block content %}
     <!-- Top section with background image -->
-    <div class="container mt-4 top-section">
+    <div class="container mt-4 top-section text-center">
         <header>
             <h1 class="mb-4">Hotel Suggestions</h1>
         </header>
     </div>
 
     <div class="container mt-4">
-        <div class="row">
+        <div class="row justify-content-center">
             {% for hotel in datum %}
-                <div class="col-md-4 mb-4">
-                    <div class="card" style="width: 18rem;">
+                <div class="col-md-4 mb-4 mx-auto">
+                    <div class="card">
+                        {% if loop.index == 1 %}
+                            <!-- Use the first image URL for the first hotel -->
+                            <img src="https://blog.ihg.com/wp-content/uploads/2014/05/bangkok-best-temples.png" class="card-img-top" alt="Hotel Image">
+                        {% elif loop.index == 2 %}
+                            <!-- Use the second image URL for the second hotel -->
+                            <img src="https://content.r9cdn.net/rimg/dimg/c5/58/d56628fa-city-23052-162e4aeda47.jpg?width=1200&height=630&crop=false" class="card-img-top" alt="Hotel Image">
+                        {% else %}
+                            <!-- Use a default image URL or handle the case where there are more than two hotels -->
+                            <img src="default_image_url.jpg" class="card-img-top" alt="Default Image">
+                        {% endif %}
                         <div class="card-body">
                             <h5 class="card-title">{{ hotel.name }}</h5>
-                            <h6 class="card-subtitle mb-2 text-muted"><strong>Rating:</strong> {{ hotel.rating }}</h6>
+                            <h6 class="card-text"><strong>Rating:</strong> {{ hotel.rating }}</h6>
                             <a href="{{ hotel.link }}" class="btn btn-primary" target="_blank">Book Now</a>
                             <!-- Add additional card links or information as needed -->
                         </div>
@@ -34,18 +44,87 @@
         </div>
     </div>
     
-    <!-- Other sections without background image -->
-    <div class="container mt-4">
-        <!-- New section or heading -->
-        <section class="mt-4">
-            <h2>New Section Heading</h2>
-            <h3></h3>
-            <p>Content for the new section goes here.</p>
-        </section>
+    
+ 
 
-        <!-- Add more sections as needed -->
-    </div>
+          <div class="container mt-4">
+            <section class="mt-4">
+                <h2>Bangkok Tourist Attractions</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img src="https://lp-cms-production.imgix.net/2021-06/GettyRF_620722958.jpg?auto=format&w=1920&h=640&fit=crop&crop=faces,edges&q=75" class="img-fluid rounded-start" alt="Image 1">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">A Beauty named The Grand Palace</h5>
+                                        <p class="card-text">A royal compound with incredible structures that are beautiful. This place was built in 1782 and is still used for important ceremonies. Remember to dress modestly while visiting the Grand Palace.  </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img src="https://tatapi.tourismthailand.org/tatfs/Image/CustomPOI/Picture/P03001341_1.jpeg" class="img-fluid rounded-start" alt="Image 2">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Shop at the Damnoen Saduak Floating Market</h5>
+                                        <p class="card-text">A market that you can shop at by boat. Bangkok used to have the nickname “Venice of the East” because of the high demand for floating markets. You will be able to buy fresh and delicious food. Also, connect with the locals. The best way to experience this is to book a tour with a company. </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
 
+     <div class="container mt-4">
+            <section class="mt-4">
+                <h2>Punta Cana Tourist Attractions</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img src="https://www.puntacanatransfer.com.do/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBbTREIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--0e4b3b74d98b016426a6e120f86348f7ce62cf73/monkey-land-v14.jpeg" class="img-fluid rounded-start" alt="Image 3">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Monkeyland</h5>
+                                        <p class="card-text">An animal sanctuary located in the Punta Cana jungle. A group of adorable squirrel monkeys home and they’ve been trained to be safe and interactive around humans. Also, you can sample local Dominican coffee.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img src="https://media-cdn.tripadvisor.com/media/photo-s/04/11/bd/20/chocomuseo.jpg" class="img-fluid rounded-start" alt="Image 2">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Visit the Chocolate Museum </h5>
+                                        <p class="card-text">The Dominican Republic is famous for its chocolate and cacao, so they have a museum dedicated to the delicious natural treat. You will learn their history of chocolate and even make your own chocolate. The museum is free but with activities that charge.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>       
+        
     <!-- Other sections without background image -->
     <div class="container mt-4">
         <!-- New section or heading -->
