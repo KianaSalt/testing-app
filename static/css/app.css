@@ -7,6 +7,14 @@
     
     /* Other background properties can be added as needed */
 }
-
+.home-section {
+    background-image: url('https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTAzL3JtNjA0YmF0Y2gyLWZyYW1lLXRhLTAyLTAxLWEuanBn.jpg');
+    background-size: 2000px 1000px; /* Set fixed width and height */
+    background-position: center;
+    background-attachment: fixed; /* Keep the background fixed within the viewport */
+    background-repeat: no-repeat; /* Do not repeat the background image */
+    
+    /* Other background properties can be added as needed */
+}
 
 

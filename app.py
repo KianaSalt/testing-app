@@ -8,15 +8,6 @@ import json
 
 app = Flask(__name__)
 
-booked_services = []
-
-hotels_data = [
-    {"name": "Hotel A", "location": "City A"},
-    {"name": "Hotel B", "location": "City B"},
-    {"name": "Hotel C", "location": "City C"},
-    # Add more hotel data as needed
-]
-
 # Home route
 @app.route("/")                   
 def home():
