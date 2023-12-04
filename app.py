@@ -29,11 +29,11 @@ def end():
 
    # List of query strings
     querystrings = [
-    {"cityName": "Berlin", "countryName": "Germany"},
-    {"cityName": "Atlanta", "countryName": "Georgia"},
+    {"cityName": "Bangkok", "countryName": "Thailand"},
+    {"cityName": "Punta Cana", "countryName": "Dominican Republic"},
     ]
     headers = {
-    "X-RapidAPI-Key": "b9acad5e50msh9b9087d682ca9d9p1a812fjsnbc3e76195a9b",
+    "X-RapidAPI-Key": "4894c3a1bcmshd133c8566ef57e7p1c5692jsn39cf5eb18188",
 	"X-RapidAPI-Host": "best-booking-com-hotel.p.rapidapi.com"
     }
     all_data = []
