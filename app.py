@@ -47,23 +47,6 @@ def end():
 
     return render_template("suggestions.html", datum=all_data)  # Pass the city data to the template
 
-    
-
-# About Route
-@app.route("/about")
-def about():
-    return render_template("about.html")
-#Book Now
-@app.route("/book-now", methods=["GET", "POST"])
-def book_now():
-    if request.method == "POST":
-        selected_service = request.form.get("service")
-        # Handle the selected service (store it in a database, etc.)
-        return render_template("booking_confirmation.html", service=selected_service)
-    else:
-        return render_template("book_now.html", services=available_services)
-
-
 
 # Get hotels route (if needed)
 @app.route("/get_hotels")                   
